@@ -3,96 +3,111 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EcoFazenda - Simulador Agrinho 2026</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <title>EcoFazenda Pro - Agrinho 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <header>
-        <h1>EcoFazenda 🌾</h1>
-        <p>Projeto Agrinho 2026 | Agro Forte, Futuro Sustentável</p>
+        <div class="header-content">
+            <h1>EcoFazenda <span>Pro</span></h1>
+            <p>Agrinho 2026 | O Desafio do Equilíbrio</p>
+        </div>
     </header>
 
-    <main class="container">
-        <section class="status-panel">
-            <div class="card">
-                <h3>Ano</h3>
-                <p id="txt-ano" class="valor">1 / 10</p>
-            </div>
-            <div class="card">
-                <h3>Dinheiro</h3>
-                <p id="txt-dinheiro" class="valor lucro">R$ 500</p>
-            </div>
-            <div class="card">
-                <h3>Capacidade de Produção</h3>
-                <p id="txt-producao" class="valor">20 toneladas</p>
-            </div>
-            <div class="card barra-card">
-                <h3>Sustentabilidade</h3>
-                <div class="progress-container">
-                    <div id="barra-sustentabilidade" class="progress-bar">50%</div>
+    <main class="game-area">
+        <aside class="left-panel">
+            <div class="characters-container card-visual">
+                <div class="character" id="char-chico">
+                    <div class="char-avatar chico-neutro"></div>
+                    <p class="char-name">Seu Chico</p>
+                    <p class="char-role">Produção</p>
+                </div>
+                <div class="character" id="char-bia">
+                    <div class="char-avatar bia-neutra"></div>
+                    <p class="char-name">Eng. Bia</p>
+                    <p class="char-role">Meio Ambiente</p>
+                </div>
+                <div class="speech-bubble hidden" id="falas-personagens">
+                    <p id="texto-fala">Vamos começar!</p>
                 </div>
             </div>
-        </section>
 
-        <section class="game-content">
-            <div class="actions-panel">
-                <h2>Ações e Investimentos</h2>
-                <p class="sub-instrucao">Escolha suas ações antes de avançar o ano:</p>
-                
-                <div class="botoes-grid">
-                    <button onclick="comprarAcao('reflorestar')">
-                        <strong>Reflorestamento (+15% Sustentabilidade)</strong>
-                        <span>Custo: R$ 100</span>
-                    </button>
-                    
-                    <button onclick="comprarAcao('organico')">
-                        <strong>Adubo Orgânico (+5 Prod. | +10% Sust.)</strong>
-                        <span>Custo: R$ 150</span>
-                    </button>
-                    
-                    <button onclick="comprarAcao('gotejamento')">
-                        <strong>Irrigação por Gotejamento (+15 Prod. | +5% Sust.)</strong>
-                        <span>Custo: R$ 250</span>
-                    </button>
+            <div class="status-grid">
+                <div class="status-card-mini card-visual">
+                    <h4>ANO</h4>
+                    <p id="txt-ano">1/10</p>
+                </div>
+                <div class="status-card-mini card-visual">
+                    <h4>DINHEIRO</h4>
+                    <p id="txt-dinheiro" class="positivo">R$ 500</p>
+                </div>
+                <div class="status-card-mini card-visual col-span-2">
+                    <h4>PRODUÇÃO ATUAL</h4>
+                    <p id="txt-producao">20 ton/ano</p>
+                </div>
+                <div class="status-card-mini card-visual col-span-2">
+                    <h4>SAÚDE DO PLANETA</h4>
+                    <div class="health-bar-container">
+                        <div id="barra-sustentabilidade" class="health-bar-fill" style="width: 50%;"></div>
+                        <span id="txt-sustentabilidade-num">50%</span>
+                    </div>
+                </div>
+            </div>
+        </aside>
 
-                    <button onclick="comprarAcao('agrotoxico')" class="btn-perigo">
-                        <strong>Usar Defensivos Químicos Pesados (+20 Prod. | -20% Sust.)</strong>
-                        <span>Custo: R$ 0 (Ganha R$ 100 imediatos)</span>
+        <section class="right-panel">
+            <div class="actions-container card-visual">
+                <h2>O que vamos fazer este ano?</h2>
+                <div class="actions-grid">
+                    <button class="btn-acao btn-green" onclick="comprarAcao('reflorestar')">
+                        <span class="icon">🌳</span>
+                        <span class="title">Reflorestar</span>
+                        <span class="cost">Custo: R$ 100</span>
+                        <span class="desc">+Sustentabilidade</span>
                     </button>
-
-                    <button onclick="comprarAcao('desmatar')" class="btn-perigo">
-                        <strong>Expandir Área (Desmatar) (+30 Prod. | -25% Sust.)</strong>
-                        <span>Custo: R$ 50</span>
+                    <button class="btn-acao btn-green" onclick="comprarAcao('organico')">
+                        <span class="icon">🪱</span>
+                        <span class="title">Adubo Orgânico</span>
+                        <span class="cost">Custo: R$ 150</span>
+                        <span class="desc">+Sust. | +Prod.</span>
+                    </button>
+                    <button class="btn-acao btn-green" onclick="comprarAcao('gotejamento')">
+                        <span class="icon">💧</span>
+                        <span class="title">Irrigação Tech</span>
+                        <span class="cost">Custo: R$ 250</span>
+                        <span class="desc">++Prod. | +Sust.</span>
+                    </button>
+                    <button class="btn-acao btn-red" onclick="comprarAcao('agrotoxico')">
+                        <span class="icon">⚠️</span>
+                        <span class="title">Químicos Pesados</span>
+                        <span class="cost">Grátis (Ganha R$ 100)</span>
+                        <span class="desc">++Prod. | --Sust.</span>
                     </button>
                 </div>
-
-                <button id="btn-avancar" onclick="avancarAno()" class="btn-principal">
-                    ⏭️ AVANÇAR PARA O PRÓXIMO ANO
+                <button id="btn-avancar" class="btn-next-year" onclick="avancarAno()">
+                    FECHAR CICLO E COLHER 🗓️
                 </button>
             </div>
 
-            <div class="log-panel">
-                <h2>Diário da Fazenda</h2>
+            <div class="log-container card-visual">
+                <h3>Diário de Bordo</h3>
                 <div id="log-mensagens" class="log-box">
-                    <p class="msg-sistema">Bem-vindo à sua nova fazenda! Encontre o equilíbrio entre lucrar e preservar o meio ambiente.</p>
+                    <p class="msg-sistema">Olá Fazendeiro(a)! Bia e Chico estão esperando suas ordens.</p>
                 </div>
             </div>
         </section>
     </main>
 
     <div id="modal-fim" class="modal-overlay hidden">
-        <div class="modal-content">
+        <div class="modal-content card-visual">
+            <div class="modal-icon" id="modal-icon-final">🏆</div>
             <h2 id="modal-titulo">Fim de Jogo</h2>
-            <p id="modal-mensagem">Mensagem de resultado...</p>
-            <button onclick="reiniciarJogo()" class="btn-principal">Jogar Novamente</button>
+            <p id="modal-mensagem">Mensagem final...</p>
+            <button onclick="reiniciarJogo()" class="btn-next-year">Tentar Novamente</button>
         </div>
     </div>
-
-    <footer>
-        <p>Desenvolvido para o Concurso Agrinho de Programação 2026.</p>
-    </footer>
 
     <script src="script.js"></script>
 </body>
