@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoFazenda - Simulador Agrinho 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>EcoFazenda 🌾</h1>
+        <p>Projeto Agrinho 2026 | Agro Forte, Futuro Sustentável</p>
+    </header>
+
+    <main class="container">
+        <section class="status-panel">
+            <div class="card">
+                <h3>Ano</h3>
+                <p id="txt-ano" class="valor">1 / 10</p>
+            </div>
+            <div class="card">
+                <h3>Dinheiro</h3>
+                <p id="txt-dinheiro" class="valor lucro">R$ 500</p>
+            </div>
+            <div class="card">
+                <h3>Capacidade de Produção</h3>
+                <p id="txt-producao" class="valor">20 toneladas</p>
+            </div>
+            <div class="card barra-card">
+                <h3>Sustentabilidade</h3>
+                <div class="progress-container">
+                    <div id="barra-sustentabilidade" class="progress-bar">50%</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="game-content">
+            <div class="actions-panel">
+                <h2>Ações e Investimentos</h2>
+                <p class="sub-instrucao">Escolha suas ações antes de avançar o ano:</p>
+                
+                <div class="botoes-grid">
+                    <button onclick="comprarAcao('reflorestar')">
+                        <strong>Reflorestamento (+15% Sustentabilidade)</strong>
+                        <span>Custo: R$ 100</span>
+                    </button>
+                    
+                    <button onclick="comprarAcao('organico')">
+                        <strong>Adubo Orgânico (+5 Prod. | +10% Sust.)</strong>
+                        <span>Custo: R$ 150</span>
+                    </button>
+                    
+                    <button onclick="comprarAcao('gotejamento')">
+                        <strong>Irrigação por Gotejamento (+15 Prod. | +5% Sust.)</strong>
+                        <span>Custo: R$ 250</span>
+                    </button>
+
+                    <button onclick="comprarAcao('agrotoxico')" class="btn-perigo">
+                        <strong>Usar Defensivos Químicos Pesados (+20 Prod. | -20% Sust.)</strong>
+                        <span>Custo: R$ 0 (Ganha R$ 100 imediatos)</span>
+                    </button>
+
+                    <button onclick="comprarAcao('desmatar')" class="btn-perigo">
+                        <strong>Expandir Área (Desmatar) (+30 Prod. | -25% Sust.)</strong>
+                        <span>Custo: R$ 50</span>
+                    </button>
+                </div>
+
+                <button id="btn-avancar" onclick="avancarAno()" class="btn-principal">
+                    ⏭️ AVANÇAR PARA O PRÓXIMO ANO
+                </button>
+            </div>
+
+            <div class="log-panel">
+                <h2>Diário da Fazenda</h2>
+                <div id="log-mensagens" class="log-box">
+                    <p class="msg-sistema">Bem-vindo à sua nova fazenda! Encontre o equilíbrio entre lucrar e preservar o meio ambiente.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="modal-fim" class="modal-overlay hidden">
+        <div class="modal-content">
+            <h2 id="modal-titulo">Fim de Jogo</h2>
+            <p id="modal-mensagem">Mensagem de resultado...</p>
+            <button onclick="reiniciarJogo()" class="btn-principal">Jogar Novamente</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>Desenvolvido para o Concurso Agrinho de Programação 2026.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

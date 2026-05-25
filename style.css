@@ -1,0 +1,254 @@
+/* Definições de Cores e Reset Geral */
+:root {
+    --verde-escuro: #1b4332;
+    --verde-claro: #2d6a4f;
+    --verde-folha: #52b788;
+    --verde-fundo: #f4f9f4;
+    --cinza-texto: #333;
+    --vermelho-alerta: #e63946;
+    --amarelo-ouro: #ffb703;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: var(--verde-fundo);
+    color: var(--cinza-texto);
+}
+
+/* Cabeçalho */
+header {
+    background-color: var(--verde-escuro);
+    color: white;
+    text-align: center;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+header h1 {
+    font-size: 24pt;
+}
+
+/* Layout Principal */
+.container {
+    max-width: 1100px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+/* Painel de Status superiores */
+.status-panel {
+    display: table;
+    width: 100%;
+    margin-bottom: 25px;
+    border-collapse: separate;
+    border-spacing: 15px 0;
+}
+
+.card {
+    display: table-cell;
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    vertical-align: middle;
+    width: 25%;
+}
+
+.card h3 {
+    font-size: 10pt;
+    color: #666;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+
+.card .valor {
+    font-size: 16pt;
+    font-weight: 700;
+    color: var(--verde-escuro);
+}
+
+/* Barra de Progresso da Sustentabilidade */
+.progress-container {
+    background-color: #e0e0e0;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-top: 5px;
+}
+
+.progress-bar {
+    background-color: var(--verde-folha);
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    padding: 3px 0;
+    width: 50%; /* Controlado pelo JS */
+    transition: width 0.5s, background-color 0.5s;
+}
+
+/* Conteúdo do Jogo (Ações e Histórico) */
+.game-content {
+    display: table;
+    width: 100%;
+}
+
+.actions-panel, .log-panel {
+    display: table-cell;
+    width: 50%;
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.actions-panel {
+    padding-right: 15px;
+}
+
+.log-panel {
+    padding-left: 15px;
+    border-left: 15px solid var(--verde-fundo); /* Cria espaçamento */
+    vertical-align: top;
+}
+
+h2 {
+    color: var(--verde-escuro);
+    font-size: 14pt;
+    margin-bottom: 10px;
+    border-left: 4px solid var(--verde-folha);
+    padding-left: 8px;
+}
+
+.sub-instrucao {
+    font-size: 9pt;
+    color: #777;
+    margin-bottom: 15px;
+}
+
+/* Botões de Ações */
+.botoes-grid {
+    display: block;
+}
+
+.botoes-grid button {
+    display: block;
+    width: 100%;
+    background: #f8f9fa;
+    border: 2px solid #e9ecef;
+    padding: 12px;
+    border-radius: 8px;
+    text-align: left;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.botoes-grid button:hover {
+    background: #edf2f4;
+    border-color: var(--verde-claro);
+}
+
+.botoes-grid button strong {
+    display: block;
+    font-size: 10pt;
+    color: var(--verde-escuro);
+}
+
+.botoes-grid button span {
+    font-size: 9pt;
+    color: #666;
+}
+
+/* Botões Poluentes / Perigosos */
+.botoes-grid button.btn-perigo:hover {
+    border-color: var(--vermelho-alerta);
+    background-color: #fff5f5;
+}
+
+/* Botão Avançar Ano */
+.btn-principal {
+    display: block;
+    width: 100%;
+    background-color: var(--amarelo-ouro);
+    color: #111;
+    border: none;
+    padding: 15px;
+    font-size: 11pt;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 15px;
+    text-align: center;
+    transition: 0.2s;
+}
+
+.btn-principal:hover {
+    background-color: #e5a900;
+    transform: translateY(-2px);
+}
+
+/* Caixa de Log (Mensagens) */
+.log-box {
+    background-color: #2b2d42;
+    color: #edf2f4;
+    padding: 15px;
+    border-radius: 8px;
+    height: 340px;
+    overflow-y: auto;
+    font-size: 9.5pt;
+}
+
+.log-box p {
+    margin-bottom: 10px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #3d405b;
+}
+
+.msg-sistema { color: #a8dadc; font-style: italic;}
+.msg-sucesso { color: #52b788; font-weight: 600;}
+.msg-perigo { color: #e63946; font-weight: 600;}
+.msg-aviso { color: #ffb703;}
+
+/* Modal de Fim de Jogo */
+.modal-overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.7);
+    display: block;
+    align-content: center;
+    text-align: center;
+    z-index: 100;
+}
+
+.modal-content {
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    max-width: 500px;
+    margin: 0 auto;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+.modal-content h2 {
+    font-size: 22pt;
+    border: none;
+    margin-bottom: 15px;
+}
+
+.hidden {
+    display: none !important;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    color: #777;
+    font-size: 9pt;
+    margin-top: 40px;
+}
